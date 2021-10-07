@@ -1,8 +1,10 @@
 const { default: axios } = require('axios');
 const { sendStartMessage } = require('./start_message_service');
 
+const API_URL_FREE_CHAMPIONS = 'http://localhost:3000/api-checker/champions/freeChampionsList';
+
 async function fetFreeChampionsList(ctx) {
-    let { data: championListJSON } = await axios.get(`http://localhost:8083/api-checker/champions/freeChampionsList`);
+    let { data: championListJSON } = await axios.get(API_URL_FREE_CHAMPIONS);
     let messChampionList = 'Free Champion list: \n';
     const championList = championListJSON?.freeChampions;
 
